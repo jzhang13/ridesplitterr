@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Browse</title>
+    <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/main.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+      function popup_join_form(give_ride_id) {
+        $("#join_popup").dialog({
+          height: 300,
+          width: 500
+        });
+        var val_ride_id = document.getElementById("ride_id");
+        val_ride_id.value = give_ride_id;
+      };
+  </script>
+
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="container">
+        <ul class="pull-left">
+          <li><a href="/">Home</a></li>
+          <li><a href="/browse">Browse</a></li>
+        </ul>
+        <ul class="pull-right">
+          <li><a href="#">Sign Up</a></li>
+          <li><a href="#">Log In</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <form method="post">
+      <fieldset class="add_ride">
+        <legend>Add ride</legend>
+        <p>
+          <label class="field">Date:</label>
+          <input name="date" type="date">
+        </p>
+        <p>
+          <label class="field">Time:</label>
+          <input name="time" type="time">
+        </p>
+        <p>
+          <label class="field">Pick-up location:</label>
+          <input name="location" type="text">
+        </p>
+        <p>
+          <label class="field">Destination:</label>
+          <input name="destination" type="text">
+        </p>
+        <p>
+          <label class="field">Name:</label>
+          <input name="name" type="text">
+        </p>
+        <p>
+          <label class="field">Phone number:</label>
+          <input name="phone" type="text">
+        </p>
+        <button name="create_ride_button" value="1">Submit</button>
+      </fieldset>
+    </form>
+
+    <hr>
+
+    {% for ride in rides %}
+    {% if ride.riders|length >= 4 %}
+    <div class="full_ride">
+      <p>THIS RIDE IS FULL</p>
+      <p>Date: {{ride.pickup_datetime.strftime("%a: %m/%d/%Y")}}</p>
+      <p>Time: {{ride.pickup_datetime.strftime("%I:%M %p")}}</p>
+      <p>Pick-up location: {{ride.location}}</p>
+      <p>Destination: {{ride.destination}}</p>
+      <p>Riders:
+        {% for rider in ride.riders %}
+        <span>{{rider}}</span>
+        {% endfor %}
+      </p>
+      <p>Phone numbers:
+        {% for number in ride.numbers %}
+        <span>{{number}}</span>
+        {% endfor %}
+      </p>
+    </div>
+    {% else %}
+    <div class="ride">
+      <p>Date: {{ride.pickup_datetime.strftime("%a: %m/%d/%Y")}}</p>
+      <p>Time: {{ride.pickup_datetime.strftime("%I:%M %p")}}</p>
+      <p>Pick-up location: {{ride.location}}</p>
+      <p>Destination: {{ride.destination}}</p>
+      <p>Riders:
+        {% for rider in ride.riders %}
+        <span>{{rider}}</span>
+        {% endfor %}
+      </p>
+      <p>Phone numbers:
+        {% for number in ride.numbers %}
+        <span>{{number}}</span>
+        {% endfor %}
+      </p>
+      <button onclick="popup_join_form({{ride.key().id()}})">Join</button>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <div id="join_popup" title="Join ride">
+      <form method="post">
+        <p>
+          <label class="field">Name:</label>
+          <input name="join_name" type="text">
+        </p>
+        <p>
+          <label class="field">Phone number:</label>
+          <input name="join_number" type="text">
+        </p>
+        <input id="ride_id" type="hidden" name="get_ride_id">
+        <button name="join_ride_button" value="1">Join</button>
+      </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,150 @@
+.nav a {
+  color: #5a5a5a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 14px 10px;
+  text-transform: uppercase;
+}
+
+.nav li {
+  display: inline;
+}
+
+.jumbotron {
+  background-image:url('http://www.chicagomonthlyparking.com/wp-content/uploads/2013/10/chicago-loop.jpg');
+  height: 500px;
+}
+
+.jumbotron .container {
+  position: relative;
+  top:100px;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 20px;
+  color: #fff;
+}
+
+.neighborhood-guides {
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.neighborhood-guides h2 {
+    color: #393c3d;
+    font-size: 24px;
+}
+
+.neighborhood-guides p {
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.learn-more {
+  background-color: #f7f7f7;
+}
+
+.learn-more h3 {
+  font-family: 'Shift', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.learn-more a {
+  color: #00b0ff;
+}
+
+.add_ride {
+  width: 500px;
+  margin: auto;
+}
+
+.add_ride p {
+  height: 32px;
+}
+
+.field {
+  text-align: right;
+  width: 160px;
+  float: left;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.add_ride input {
+  width: 300px;
+  height: 32px;
+  float: left;
+}
+
+.add_ride button {
+  float: right;
+}
+
+fieldset p {
+  clear: both;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+.ride, .full_ride {
+  margin: 10px;
+  padding: 10px;
+  width: 600px;
+  border: 1px solid black;
+}
+
+.ride {
+  background-color: #92FF8D;
+}
+
+.full_ride {
+  background-color: #FF8D90;
+}
+
+#join_popup {
+  background-color: #97A4DB;
+  display: none;
+  height: 300px;
+}
+
+.ui-dialog {
+  margin-top: 120px;
+  box-shadow: 2px 2px 5px #666;
+}
+
+.ui-widget-content {
+  background-color: #5A5E71;
+}
+
+.ui-widget-header {
+  height: 35px;
+  vertical-align: center;
+}
+
+.ui-dialog-titlebar {
+  padding: 3px 5px;
+}
+
+.ui-dialog-title {
+  font-size: 20px;
+}
+
+.ui-widget-content button {
+  float: right;
+}
+
+.ui-dialog-content {
+  padding: 10px;
+  height: 120px !important;
+}
